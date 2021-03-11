@@ -52,10 +52,10 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     #local
-    # 'api.apps.ApiConfig',
-    # 'accounts.apps.AccountsConfig',
+    'api.apps.ApiConfig',
+    'accounts.apps.AccountsConfig',
     'recipes.apps.RecipesConfig',
-    # 'frontend.apps.FrontendConfig',
+    'frontend.apps.FrontendConfig',
 ]
 
 MIDDLEWARE = [
@@ -145,10 +145,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-# AUTH_USER_MODEL = 'accounts.CustomUser'
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -159,23 +155,24 @@ REST_FRAMEWORK = {
     ]
 }
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+REST_AUTH_SERIALIZERS = {
+    'TOKEN_SERIALIZER': 'accounts.serializers.TokenSerializer'
+}
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'frontend/static/build/static'),)
 REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend/static')
 
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.CustomUser'
+SITE_ID = 1
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-REST_AUTH_SERIALIZERS = {
-    'TOKEN_SERIALIZER': 'accounts.serializers.TokenSerializer'
-}
-
-# SITE_ID = 1
