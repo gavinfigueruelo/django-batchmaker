@@ -49,7 +49,7 @@ class Recipe(models.Model):
     prep_time = models.IntegerField(null = True)
     cook_time = models.IntegerField(null = True)
     cook_temp = models.IntegerField(null = True)
-    degree = models.charField(
+    degree = models.CharField(
         max_length = 10,
         choices = DEGREE,
         default = F,
@@ -68,7 +68,7 @@ class Recipe(models.Model):
         max_length = 600,
         null = True,
     )
-    notes = models.charField(max_length = 250)
+    notes = models.CharField(max_length = 250)
 
 def __str__(self):
     return self.title[:100]

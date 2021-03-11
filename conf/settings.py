@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'django-fullstack-news-app.heroku.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'django-batchmaker.heroku.com']
 
 
 # Application definition
@@ -52,10 +52,10 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     #local
-    'api.apps.ApiConfig',
-    'accounts.apps.AccountsConfig',
-    'articles.apps.ArticlesConfig',
-    'frontend.apps.FrontendConfig',
+    # 'api.apps.ApiConfig',
+    # 'accounts.apps.AccountsConfig',
+    'recipes.apps.RecipesConfig',
+    # 'frontend.apps.FrontendConfig',
 ]
 
 MIDDLEWARE = [
@@ -147,7 +147,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-AUTH_USER_MODEL = 'accounts.CustomUser'
+# AUTH_USER_MODEL = 'accounts.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -159,7 +159,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -169,7 +169,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'frontend/static/build/static'),)
 REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend/static')
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
+# AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -178,4 +178,4 @@ REST_AUTH_SERIALIZERS = {
     'TOKEN_SERIALIZER': 'accounts.serializers.TokenSerializer'
 }
 
-SITE_ID = 1
+# SITE_ID = 1
